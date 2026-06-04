@@ -1,64 +1,28 @@
-# Boilerplate for FastAPI, MongoDB, Motor Projects
-![Python3.11.2](https://img.shields.io/badge/Python-3.11.2-brightgreen.svg?style=flat-square)
-![MongoDB](https://img.shields.io/badge/MongoDB-6.0-brightgreen.svg?style=flat-square)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.92.0-brightgreen.svg?style=flat-square)
-![Motor](https://img.shields.io/badge/Motor-3.1.1-brightgreen.svg?style=flat-square)
+# FastAPI & MongoDB Asynchronous Template
 
+## 📚 Educational Disclaimer & Credits
+**This repository is used strictly for personal educational purposes, self-study, and architectural practice.** * **Original Creator & Credits:** [alexk1919](https://github.com/alexk1919)
+* **Original Repository:** [fastapi-motor-mongo-template](https://github.com/alexk1919/fastapi-motor-mongo-template)
 
-## Features
-A new backend project created with this boilerplate provides:
-- [x] Asynchronous high-performance RESTful APIs built upon [FastAPI](https://fastapi.tiangolo.com/) framework.
-- [x] Asynchronous CRUD operations for a sample resource built upon [Motor](https://motor.readthedocs.io/en/stable/) driver for MongoDB, providing high performance and efficiency.
-- [x] API documentation with [Swagger UI](https://swagger.io/tools/swagger-ui/).
-- [x] API testing with [pytest](https://docs.pytest.org/en/7.1.x/) and [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio).
-- [x] Dockerfile for containerization and docker-compose support.
-- [x] Easy creation of new backend services with [cookiecutter](https://github.com/cookiecutter/cookiecutter).
-- [x] Easy package menagement with [Poetry](https://python-poetry.org/).
-- [x] Health API for service health checking.
-- [x] Easy configuration with environment variables.
-- [x] Easy testing, develop running, docker build, docker-compose up and down with Makefile.
-- [x] Proper logging with ID masking.
+The purpose of cloning and modifying this template is to deeply analyze industry-standard production patterns for integrating **FastAPI** with **MongoDB** using the asynchronous **Motor** driver. Keeping this blueprint on my profile serves as a core reference point for my ongoing full-stack engineering journey.
 
-## Prerequisites
-- Python 3.11+
-- [Poetry](https://python-poetry.org/) installed
-- Docker installed
-- GNU Make
+---
 
-## Getting Started
+## 🚀 Key Learning Objectives Tracked Here
+1. **Asynchronous DB Lifecycle Management:** Analyzing how the application registers `AsyncIOMotorClient` using FastAPI lifespans (`startup` and `shutdown` events).
+2. **Environment & Configuration Isolation:** Understanding clean multi-environment configurations managed via Pydantic settings.
+3. **Structured Repository Layer:** Reviewing how database queries are isolated from route controllers using structured CRUD patterns.
+4. **Integration Testing Setup:** Dissecting testing fixtures implemented with `pytest` and asynchronous event loops.
 
-### Edit Environment Variables
-Edit the `.env` file within the project folder.
+---
 
-### Run Tests
-```sh
-make test
-```
-(This may not work at this time. Please use docker-compose instead.)
+## 🛠️ Local Setup Reference
+If you wish to look through this code blueprint locally, follow these standard setup routines:
 
-### Build Docker Image
-```sh
-make docker-build
-```
+### 1. Prerequisites
+Ensure you have a local MongoDB server running or a connection string to a MongoDB Atlas cluster.
 
-### Docker-compose
-```sh
-make docker-compose-up
-make docker-compose-down
-```
-
-### Run Service Locally
-```sh
-make dev
-```
-This will create a MongoDB container as well.
-(This may not work at this time. Please use docker-compose instead.)
-
-### Check Swagger API Document
-Go to ` http://localhost:8888/docs`.
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you.
-
-## Credit: 
-Forked from https://github.com/klee1611/cookiecutter-fastapi-mongo
+### 2. Environment Configurations
+Create a `.env` file in the root directory based on the configuration logic found in `app/core/config.py`:
+```env
+MONGO_URI=mongodb://localhost:27017/your_db_name
