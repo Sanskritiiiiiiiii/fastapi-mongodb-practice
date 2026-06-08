@@ -4,8 +4,8 @@
 import os
 from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
-# AsyncIOMotorClient: Yeh aapki application aur MongoDB server ke beech ka Main Bridge (Client) hai.
-# AsyncIOMotorDatabase: Yeh pure MongoDB server ke andar se kisi ek specific database ko represent karta hai.
+#  AsyncIOMotorClient: Yeh aapki application aur MongoDB server ke beech ka Main Bridge (Client) hai.
+#  AsyncIOMotorDatabase: Yeh pure MongoDB server ke andar se kisi ek specific database ko represent karta hai.
 import logging
 
 from app.conf.config import Config
@@ -70,3 +70,5 @@ async def close_db_connect():
     db_client.close()
     db_client = None
     logging.info('Mongo connection closed.')
+
+# End of file
